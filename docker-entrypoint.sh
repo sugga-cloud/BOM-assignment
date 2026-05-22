@@ -3,10 +3,6 @@ set -e
 
 cd /var/www/html
 
-# Copy environment file if it doesn't exist
-if [ ! -f .env ]; then
-  cp .env.example .env
-fi
 
 # Ensure SQLite database file exists
 if [ ! -d database ]; then
