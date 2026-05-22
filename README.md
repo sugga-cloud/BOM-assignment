@@ -20,7 +20,38 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Getting Started
 
+To use this BOM application locally:
+
+1. Download or clone the repository.
+2. Install PHP dependencies:
+
+```bash
+composer install
+```
+
+3. Copy the environment file and update your database settings:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+4. Create a fresh database schema and seed the database:
+
+```bash
+php artisan migrate:fresh
+php artisan db:seed
+```
+
+5. Start the local development server:
+
+```bash
+php artisan serve
+```
+
+Once the server is running, open the URL shown in your console to access the application.
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
