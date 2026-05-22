@@ -23,6 +23,6 @@ if [ ! -f vendor/autoload.php ]; then
 fi
 
 # Run migrations and seed database every time on startup
-php artisan migrate:fresh --seed --force
-
+php artisan migrate:fresh
+php artisan db:seed
 exec php artisan serve --host=0.0.0.0 --port=8000
