@@ -38,13 +38,11 @@ COPY . /var/www/html
 # Install PHP dependencies
 RUN composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader
 
-# Add entrypoint script for startup setup
-COPY docker-entrypoint.sh /var/www/html/docker-entrypoint.sh
-RUN chmod +x /var/www/html/docker-entrypoint.sh
-
 # Set file permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
+RUN php artisan migrate:fresh
+RUN php artisan db:seed
+RUN php artisan queue:work
 EXPOSE 8000
 
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
